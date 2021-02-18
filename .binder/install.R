@@ -1,5 +1,3 @@
 install.packages(
-  c("haven",
-  "mecor",
-  "tidyverse")
+  c("mecor")
 )

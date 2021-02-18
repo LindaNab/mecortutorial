@@ -16,8 +16,6 @@
 # blood pressure in pregnant women (adjusted for age)
 
 # 0. load libraries
-library(haven)
-library(tidyverse)
 library(mecor)
 
 # 1. load data
