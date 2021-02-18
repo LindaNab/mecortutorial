@@ -1,3 +1,4 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LindaNab/mecortutorial/HEAD)
 # The mecortutorial repository
 
 ## Version 0.1.0
