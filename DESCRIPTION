@@ -8,6 +8,7 @@ Authors@R:
            email = lindanab4@gmail.com",
            comment = c(ORCID = "0000-0002-1821-7246"))
 Description: Tutorial demonstrating the use of R.
+Depends: R (>= 4.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
