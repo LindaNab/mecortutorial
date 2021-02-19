@@ -1,3 +1,3 @@
 install.packages(
-  c("mecor", "dplyr")
+  c("mecor", "haven", "dplyr")
 )
