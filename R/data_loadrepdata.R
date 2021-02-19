@@ -22,7 +22,7 @@ library(dplyr)
 
 # 1. load data
 data <-
-  read.csv2(file = "./data/McCarthy_gestationalht.csv")
+  read.csv2(file = "./data/raw/McCarthy_gestationalht.csv")
 
 # Number of individuals in original data
 data %>% nrow() # 475
@@ -51,4 +51,6 @@ data$SBP_90[-cc] <- NA
 data$SBP_120[-cc] <- NA
 
 # save RDS file
-saveRDS(data, file = "./data/sbp_creatinine.RDS")
+saveRDS(data, file = paste0("./data/processed/sbp_creatinine_", 
+                            Sys.Date(), 
+                            ".RDS"))

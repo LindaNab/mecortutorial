@@ -21,7 +21,7 @@ library(dplyr)
 
 ## 1. load data
 repdata <-
-  readRDS(file = "./data/sbp_creatinine.RDS")
+  readRDS(file = "./data/processed/sbp_creatinine_2021-02-19.RDS")
 
 ## 2. data analysis
 # Show data to view structure 
