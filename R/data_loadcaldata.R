@@ -13,3 +13,24 @@
 
 # Here, we'll be aiming to estimate the association between ....
 
+# 0. load libraries
+library(haven)
+library(dplyr)
+
+# 1. load data
+data <-
+  read.csv2(file = "./data/raw/dataset_irisin_PA.csv")
+
+data <-
+  data %>%
+  mutate(MET = Total.MET..MET.min.week.,
+         weight = body.weight..kg.,
+         TEE = TEE..kcal.d.)
+data <-
+  data %>%
+  mutate(MET_kcal_day = ((((MET * 3.5 * 86.3) / 200) * 60) / 7 / 24))
+
+with(data, plot(MET_kcal_day, TEE))
+
+
+
