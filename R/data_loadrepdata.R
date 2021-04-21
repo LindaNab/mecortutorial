@@ -10,7 +10,7 @@
 # Paper: https://bmjopen.bmj.com/content/5/11/e009492
 # Original rq: Effectiveness and safety of 1 vs 4 h blood pressure profile with
 # clinical and laboratory assessment for the exclusion of gestational ht and
-# pre-clampsia: a retrospective study in a universty affiliated maternity
+# pre-clampsia: a retrospective study in a university affiliated maternity
 # hospital
 
 # Here, we'll be aiming to estimate the association between creatinine and 
@@ -42,6 +42,14 @@ data <-
   filter(Creatinine > 10)
 data %>% nrow() # 450
 
+# Age range
+with(data, range(Age))
+# impute mean age for age 0.4
+mean_age <-
+  data %>% filter(Age != 0.4 & Age != 0.6) %>% pull(Age) %>% mean()
+#  Impute mean age
+data[which(data$Age == 0.4),]$Age <- mean_age
+data[which(data$Age == 0.6),]$Age <- mean_age
 # Create balanced replicates study (select only individuals of whom 3 replicate
 # measures are available)
 cc <-
