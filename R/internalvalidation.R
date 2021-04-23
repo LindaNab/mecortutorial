@@ -68,15 +68,9 @@ naivefit %>% summary()
 # Correcting for measurement error using regression calibration:
 mecorfit_regcal <- 
   mecor(wc ~ MeasError(bmi_selfrep, reference = bmi) + gender + age, 
-        data = intvaldata)
+        data = intvaldata,
+        method = "standard")
 mecorfit_regcal %>% summary()
-
-# Correcting for measurement error using regression calibration:
-mecorfit_efregcal <- 
-  mecor(wc ~ MeasError(bmi_selfrep, reference = bmi) + gender + age, 
-        data = intvaldata, 
-        method = "efficient")
-mecorfit_efregcal %>% summary()
 
 # Correcting for measurement error using validation regression calibration:
 mecorfit_valregcal <- 
@@ -84,3 +78,10 @@ mecorfit_valregcal <-
         data = intvaldata, 
         method = "valregcal")
 mecorfit_valregcal %>% summary()
+
+# Correcting for measurement error using regression calibration:
+mecorfit_efregcal <- 
+  mecor(wc ~ MeasError(bmi_selfrep, reference = bmi) + gender + age, 
+        data = intvaldata, 
+        method = "efficient")
+mecorfit_efregcal %>% summary()

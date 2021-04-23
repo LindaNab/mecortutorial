@@ -18,6 +18,7 @@
 ## 0. load libraries
 library(mecor)
 library(dplyr)
+library(simex)
 
 ## 1. load data
 repdata <-
@@ -44,7 +45,8 @@ with(repdata,
 # Fit a linear model using the first BP measurement:
 naivefit <-
   lm(Creatinine ~ SBP_30 + Age,
-     data = repdata)
+     data = repdata, 
+     x = TRUE)
 naivefit %>% summary()
 
 # Correcting for measurement error using the 3 replicates applying regcal:
@@ -76,3 +78,11 @@ mefit_random <-
   mecor(Creatinine ~ MeasErrorRandom(SBP_30, var = sbp_var) + Age,
         data = repdata)
 mefit_random %>% summary()
+
+# Correcting for measurement error using the estimated variance // simex
+mefit_simex <-
+  simex(naivefit, 
+        SIMEXvariable = "SBP_30", 
+        measurement.error = sqrt(sbp_var), 
+        B = 1000)
+mefit_simex %>% summary()

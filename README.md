@@ -2,7 +2,7 @@
 # The mecortutorial repository
 
 ## Version 0.1.0
-This repository contains code for the R tutorial of mecor.
+This repository contains code for the R tutorial of mecor. The paper describing the R package mecor for measurement error correction can be found here: https://arxiv.org/abs/2102.04791.
 
 ## Usage
 Several Rmarkdown scripts can be found in this repository showing the usage of the R package mecor.
